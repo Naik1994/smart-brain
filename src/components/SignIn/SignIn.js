@@ -19,7 +19,7 @@ class SignIn extends React.Component {
 
     onSubmit = async () => {
         try {
-            const response = await fetch('http://localhost:3001/signin', {
+            const response = await fetch('http://ec2-13-126-178-22.ap-south-1.compute.amazonaws.com:3001/signin', {
                 method: "POST",
                 headers: {"content-type": "application/json"},
                 body: JSON.stringify({
@@ -30,7 +30,7 @@ class SignIn extends React.Component {
 
             const data = await response.json();
             if (data.id) {
-                const response = await fetch(`http://localhost:3001/profile/${data.id}`);
+                const response = await fetch(`http://ec2-13-126-178-22.ap-south-1.compute.amazonaws.com:3001/profile/${data.id}`);
                 const userData = await response.json();
                 this.props.updateProfile(userData);
                 this.props.onRouteChange('home');

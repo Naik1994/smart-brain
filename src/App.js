@@ -90,7 +90,7 @@ class App extends React.Component {
         });
         this.displayFaceBox(boxes);
 
-        fetch("http://localhost:3001/image", {
+        fetch("http://ec2-13-126-178-22.ap-south-1.compute.amazonaws.com:3001/image", {
           method: "PUT",
           headers: {"content-type": "application/json"},
           body: JSON.stringify({id: this.state.profile.id})
