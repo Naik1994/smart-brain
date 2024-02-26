@@ -19,7 +19,7 @@ class SignIn extends React.Component {
 
     onSubmit = async () => {
         try {
-            const response = await fetch(`${process.env.backendServer}:${process.env.backendPort}/signin`, {
+            const response = await fetch(`${process.env.REACT_APP_BACKEND_SERVER}:${process.env.REACT_APP_BACKEND_PORT}/signin`, {
                 method: "POST",
                 headers: {"content-type": "application/json"},
                 body: JSON.stringify({
@@ -30,7 +30,7 @@ class SignIn extends React.Component {
 
             const data = await response.json();
             if (data.id) {
-                const response = await fetch(`${process.env.backendServer}:${process.env.backendPort}/profile/${data.id}`);
+                const response = await fetch(`${process.env.REACT_APP_BACKEND_SERVER}:${process.env.REACT_APP_BACKEND_PORT}/profile/${data.id}`);
                 const userData = await response.json();
                 this.props.updateProfile(userData);
                 this.props.onRouteChange('home');

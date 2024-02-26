@@ -9,11 +9,11 @@ import FaceRecognition from './components/FaceRecognition/FaceRecognition';
 import SignIn from './components/SignIn/SignIn';
 import Register from './components/Register/Register';
 
-const PAT = process.env.PAT;
-const USER_ID = process.env.USER_ID;       
-const APP_ID = process.env.APP_ID;
-const MODEL_ID = process.env.MODEL_ID;
-const MODEL_VERSION_ID = process.env.MODEL_VERSION_ID;
+const PAT = process.env.REACT_APP_PAT;
+const USER_ID = process.env.REACT_APP_USER_ID;       
+const APP_ID = process.env.REACT_APP_APP_ID;
+const MODEL_ID = process.env.REACT_APP_MODEL_ID;
+const MODEL_VERSION_ID = process.env.REACT_APP_MODEL_VERSION_ID;
 
 const initialState = {
   search: "",
@@ -90,7 +90,7 @@ class App extends React.Component {
         });
         this.displayFaceBox(boxes);
 
-        fetch(`${process.env.backendServer}:${process.env.backendPort}/image`, {
+        fetch(`${process.env.REACT_APP_BACKEND_SERVER}:${process.env.REACT_APP_BACKEND_PORT}/image`, {
           method: "PUT",
           headers: {"content-type": "application/json"},
           body: JSON.stringify({id: this.state.profile.id})

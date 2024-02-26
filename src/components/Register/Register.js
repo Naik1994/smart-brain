@@ -23,7 +23,7 @@ class Register extends React.Component {
     }
 
     onSubmit = () => {
-        fetch(`${process.env.backendServer}:${process.env.backendPort}/register`, {
+        fetch(`${process.env.REACT_APP_BACKEND_SERVER}:${process.env.REACT_APP_BACKEND_PORT}/register`, {
             method: "POST",
             headers: { "content-type": "application/json"},
             body: JSON.stringify({
