@@ -9,11 +9,11 @@ import FaceRecognition from './components/FaceRecognition/FaceRecognition';
 import SignIn from './components/SignIn/SignIn';
 import Register from './components/Register/Register';
 
-const PAT = 'da5cc4152e0a4630b215635593127f87';
-const USER_ID = 'dyoqrben51ya';       
-const APP_ID = 'a401ec78a93d4b24b71df6b0e8f7d7e1';
-const MODEL_ID = 'general-image-detection';
-const MODEL_VERSION_ID = '1580bb1932594c93b7e2e04456af7c6f';    
+const PAT = process.env.PAT;
+const USER_ID = process.env.USER_ID;       
+const APP_ID = process.env.APP_ID;
+const MODEL_ID = process.env.MODEL_ID;
+const MODEL_VERSION_ID = process.env.MODEL_VERSION_ID;
 
 const initialState = {
   search: "",
@@ -90,7 +90,7 @@ class App extends React.Component {
         });
         this.displayFaceBox(boxes);
 
-        fetch("http://ec2-13-126-178-22.ap-south-1.compute.amazonaws.com:3001/image", {
+        fetch(`${process.env.backendServer}:${process.env.backendPort}/image`, {
           method: "PUT",
           headers: {"content-type": "application/json"},
           body: JSON.stringify({id: this.state.profile.id})
