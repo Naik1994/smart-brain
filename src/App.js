@@ -90,7 +90,7 @@ class App extends React.Component {
         });
         this.displayFaceBox(boxes);
 
-        fetch(`${process.env.REACT_APP_BACKEND_SERVER}:${process.env.REACT_APP_BACKEND_PORT}/image`, {
+        fetch(`${process.env.REACT_APP_BACKEND_SERVER}/image`, {
           method: "PUT",
           headers: {"content-type": "application/json"},
           body: JSON.stringify({id: this.state.profile.id})
